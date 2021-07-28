@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+    <form action="/shows/create" method="post">
+        <a href="/shows" type="submit" class="btn">go back</a> {% csrf_token %} {% for show in view_shows %}
+        <div class="view_div">
+            <h2>TV show {{show.id}}</h2>
+            <label class="view_label">Title:{{show.title}}</label>
+            <label class="view_label">Network:{{show.network}}</label>
+            <label class="view_label">Release date:{{show.release_date|date:'Y-m-d'}}</label>
+            <label class="view_label">Description:{{show.description}}</label>
+            <div class="update_sec">
+                <label class="view_label">Last Updated:{{show.updated_at}}</label>
+                <a href="/shows/{{show.id}}/edit" type="submit">edit</a>|
+                <a href="/shows/{{show.id}}/destroy" type="submit">delete</a> {% endfor %}
+            </div>
+        </div>
+    </form>
+</body>
+
+</html>

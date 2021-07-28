@@ -1,0 +1,17 @@
+.view_label {
+    display: block
+}
+
+.update_sec {
+    margin: 30px
+}
+
+.input_form {
+    margin: 150px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.view_div {
+    margin: 150px;
+}
