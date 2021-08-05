@@ -32,7 +32,7 @@
             <h2>Add a New Show</h2>
             <label>Title</label><input type="text" class="form-control" name="title" placeholder="Title" required="required" value="{{show.title}}">
             <label>Network</label><input type="text" class="form-control" name="network" placeholder="Network" required="required" value="{{show.network}}">
-            <label>Release Date</label><input type="date" name="release_date" id="release" class="form-control" value="{{ show.release_date|date:'Y-m-d'}}">
+            <label>Release Date</label><input type="date" name="release_date" id="release" class="form-control" value="{{ show.release_date|date:'m/d/Y'}}">
             <label>Description</label><textarea class="form-control" name="description">{{show.description}}</textarea>
             <button type="submit" name="update_show" class="btn btn-primary btn-lg">Update</button>
             <a href="/shows/{{show.id}}" type="submit" class="btn">show</a>{% endfor %}
